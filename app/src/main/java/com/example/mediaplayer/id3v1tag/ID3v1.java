@@ -6,8 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.io.UnsupportedEncodingException;
-
-
+import java.nio.charset.StandardCharsets;
 
 
 public class ID3v1  {
@@ -118,26 +117,22 @@ public class ID3v1  {
 	            }
 
 	            if (id3.getArtist() != null) {
-	                cache = id3.getArtist().getBytes("UTF-8");
+	                cache = id3.getArtist().getBytes(StandardCharsets.UTF_8);
 	                System.arraycopy(cache, 0, buffArtist, 0, cache.length);
 	            }
 
 	            if (id3.getAlbum() != null) {
-	                try {
-	                    cache = id3.getAlbum().getBytes("UTF-8");
-	                    System.arraycopy(cache, 0, buffAlbum, 0, cache.length);
-	                } catch (UnsupportedEncodingException e) {
-	                    e.printStackTrace();
-	                }
-	            }
+					cache = id3.getAlbum().getBytes(StandardCharsets.UTF_8);
+					System.arraycopy(cache, 0, buffAlbum, 0, cache.length);
+				}
 
 	            if (id3.getYear() != null) {
-	                cache = id3.getYear().getBytes("UTF-8");
+	                cache = id3.getYear().getBytes(StandardCharsets.UTF_8);
 	                System.arraycopy(cache, 0, buffYear, 0, cache.length);
 	            }
 
 	            if (id3.getComment() != null) {
-	                cache = id3.getComment().getBytes("UTF-8");
+	                cache = id3.getComment().getBytes(StandardCharsets.UTF_8);
 	                int num = 30;
 	                if (cache.length <= num) {
 	                    num = cache.length;
@@ -145,7 +140,7 @@ public class ID3v1  {
 	                System.arraycopy(cache, 0, buffComment, 0, num);
 	            }
 	            if (id3.getTitle() != null) {
-	                cache = id3.getTitle().getBytes("UTF-8");
+	                cache = id3.getTitle().getBytes(StandardCharsets.UTF_8);
 	                System.arraycopy(cache, 0, buffSoundName, 0, cache.length);
 	            }
 	           
@@ -170,15 +165,11 @@ public class ID3v1  {
 	            }
 	            randomAccessFile.seek(len);
 	            randomAccessFile.write(bufferAll, 0, bufferAll.length);
-	        } catch (UnsupportedEncodingException e) {
-	            e.printStackTrace();
-	        } catch (FileNotFoundException e) {
-	            e.printStackTrace();
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
-	    }
-	    public static final byte[] intToByteArray(int value) {
+		}
+	    public static byte[] intToByteArray(int value) {
 	        return new byte[] {
 	                (byte)(value >>> 24),
 	                (byte)(value >>> 16),

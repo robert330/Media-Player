@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements android.widget.Se
                 MediaStore.Audio.Media.DURATION,
                 MediaStore.Audio.Media.DATA,
                 MediaStore.Audio.Media.ARTIST,
+
                 MediaStore.Audio.Media._ID,
         };
         Cursor cursor= context.getContentResolver().query(uri,projection,null,null,order);

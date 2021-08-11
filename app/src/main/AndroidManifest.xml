@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mediaplayer">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+
+
+        />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
+        android:name=".ApplicationClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Media Player"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".ApplicationClass"
         android:theme="@style/Theme.MediaPlayer">
-        <activity android:name=".AlbumDetails"></activity>
+        <activity android:name=".SongDetails" />
+        <activity android:name=".AlbumDetails" />
         <activity android:name=".PlayerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -23,12 +29,17 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".MusicService" android:enabled="true" />
-        <receiver android:name=".NotificationReceiver" android:enabled="true">
+        <service
+            android:name=".MusicService"
+            android:enabled="true" />
+
+        <receiver
+            android:name=".NotificationReceiver"
+            android:enabled="true">
             <intent-filter>
-                <action android:name="actionprevious"/>
-                <action android:name="actionnext"/>
-                <action android:name="actionplay"/>
+                <action android:name="actionprevious" />
+                <action android:name="actionnext" />
+                <action android:name="actionplay" />
             </intent-filter>
         </receiver>
     </application>

@@ -1,11 +1,14 @@
 package com.example.mediaplayer;
 
 import android.annotation.SuppressLint;
+import android.app.PendingIntent;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -24,6 +29,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder> {
     private Context mContext;
@@ -81,6 +87,14 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
                         Toast.makeText(mContext, "Delete clicked", Toast.LENGTH_SHORT).show();
                         deleteFile(position, v);
                         break;
+                    case R.id.informations:
+                        Intent intent = new Intent(mContext, SongDetails.class);
+                        intent.putExtra("position",position);
+                        mContext.startActivity(intent);
+
+                        Toast.makeText(mContext, "Informations clicked", Toast.LENGTH_SHORT).show();
+
+                        break;
                 }
                 return true;
 
@@ -90,7 +104,9 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
     });
     }
 
+
     private void deleteFile(int position, View v) {
+
         Uri contentUri= ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
                 Long.parseLong(mFiles.get(position).getId()));
 
@@ -125,6 +141,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
             file_name= itemView.findViewById(R.id.music_file_name);
             album_art=itemView.findViewById(R.id.music_img);
             menuMore=itemView.findViewById(R.id.menuMore);
+
         }
     }
     private byte[] getAlbumArt(String uri){

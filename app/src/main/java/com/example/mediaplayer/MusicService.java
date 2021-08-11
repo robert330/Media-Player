@@ -15,7 +15,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.util.Log;
-import android.widget.Toast;
+
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
@@ -120,8 +120,10 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
     void start(){
         mediaPlayer.start();
     }
-    boolean isPlaying(){
-        return mediaPlayer.isPlaying();
+    boolean isPlaying() throws NullPointerException{
+
+            return mediaPlayer.isPlaying();
+
     }
     void stop(){
         mediaPlayer.stop();
@@ -173,10 +175,9 @@ public class MusicService extends Service implements MediaPlayer.OnCompletionLis
         this.actionPlaying= actionPlaying;
     }
     void showNotification(int playPauseBtn){
-        Intent intent= new Intent(this,PlayerActivity.class);
 
-        PendingIntent contentIntent= PendingIntent.getActivity(
-                this,0,intent,0);
+
+
 
         Intent prevIntent= new Intent(this,
                 NotificationReceiver.class).setAction(ACTION_PREVIOUS);

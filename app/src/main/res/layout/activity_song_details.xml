@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+
+    android:id="@+id/audio_item"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Informations"
+        android:layout_marginStart="105dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="40dp"
+        android:textColor="#FFFF"
+        android:textSize="30sp"
+        />
+    <TextView
+        android:layout_width="105dp"
+
+        android:layout_height="wrap_content"
+        android:text="Song Title:"
+        android:layout_marginStart="5dp"
+       android:textSize="20sp"
+        
+        android:gravity="end"
+        android:textAlignment="gravity"
+
+        android:textColor="#FFFF"
+        android:layout_marginTop="110dp"
+        android:id="@+id/music_file_name"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+
+
+        android:text="Song title"
+        android:textSize="20sp"
+        android:layout_marginTop="110dp"
+        android:layout_toEndOf="@id/music_file_name"
+        android:layout_marginStart="10dp"
+        android:textColor="#FFFF"
+        android:id="@+id/song_name_details"
+        />
+
+    <TextView
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:text="Artist:"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+
+        android:gravity="end"
+        android:textAlignment="gravity"
+
+        android:textColor="#FFFF"
+        android:layout_marginTop="150dp"
+        android:id="@+id/artist_details"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Artist"
+        android:textSize="20sp"
+        android:layout_marginTop="150dp"
+        android:layout_toEndOf="@id/music_file_name"
+        android:layout_marginStart="10dp"
+        android:textColor="#FFFF"
+        android:id="@+id/artist_info_details"
+        />
+
+    <TextView
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:text="Album:"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        android:gravity="end"
+        android:textAlignment="gravity"
+
+        android:textColor="#FFFF"
+        android:layout_marginTop="190dp"
+        android:id="@+id/album_details"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Album"
+        android:textSize="20sp"
+        android:layout_marginTop="190dp"
+        android:layout_toEndOf="@id/music_file_name"
+        android:layout_marginStart="10dp"
+        android:textColor="#FFFF"
+        android:id="@+id/album_info_details"
+        />
+    <TextView
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:text="Year:"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        android:gravity="end"
+        android:textAlignment="gravity"
+
+        android:textColor="#FFFF"
+        android:layout_marginTop="230dp"
+        android:id="@+id/year_details"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Year"
+        android:textSize="20sp"
+        android:layout_marginTop="230dp"
+        android:layout_toEndOf="@id/music_file_name"
+        android:layout_marginStart="10dp"
+        android:textColor="#FFFF"
+        android:id="@+id/year_info_details"
+        />
+    <TextView
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:text="Comment:"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        android:gravity="end"
+        android:textAlignment="gravity"
+
+        android:textColor="#FFFF"
+        android:layout_marginTop="270dp"
+        android:id="@+id/comment_details"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comment"
+        android:textSize="20sp"
+        android:maxLines="1"
+        android:layout_marginTop="270dp"
+        android:layout_toEndOf="@id/music_file_name"
+        android:layout_marginStart="10dp"
+        android:textColor="#FFFF"
+        android:id="@+id/comment_info_details"
+        />
+
+    <TextView
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:text="Genre:"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        android:gravity="end"
+        android:textAlignment="gravity"
+
+        android:textColor="#FFFF"
+        android:layout_marginTop="310dp"
+        android:id="@+id/genre_details"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Genre"
+        android:textSize="20sp"
+        android:layout_marginTop="310dp"
+        android:layout_toEndOf="@id/music_file_name"
+        android:layout_marginStart="10dp"
+        android:textColor="#FFFF"
+        android:id="@+id/genre_info_details"
+        />
+    <TextView
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:text="Size of file:"
+        android:layout_marginStart="5dp"
+        android:textSize="20sp"
+        android:gravity="end"
+        android:textAlignment="gravity"
+
+        android:textColor="#FFFF"
+        android:layout_marginTop="350dp"
+        android:id="@+id/size_details"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Size of file"
+        android:textSize="20sp"
+        android:layout_marginTop="350dp"
+        android:layout_toEndOf="@id/music_file_name"
+        android:layout_marginStart="10dp"
+        android:textColor="#FFFF"
+        android:id="@+id/size_info_details"
+        />
+
+</RelativeLayout>

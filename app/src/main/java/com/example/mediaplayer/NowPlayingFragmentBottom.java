@@ -119,13 +119,21 @@ public class NowPlayingFragmentBottom extends Fragment implements ServiceConnect
 
                 if(musicService!=null){
                     musicService.playPauseBtnClicked();
-                    if(musicService.isPlaying()){
-                        playPauseBtn.setImageResource(R.drawable.ic_baseline_pause);
+                    try{
+                        if(musicService.isPlaying()){
+                            playPauseBtn.setImageResource(R.drawable.ic_baseline_pause);
+                        }
+                        else{
+                            playPauseBtn.setImageResource(R.drawable.ic_baseline_play_arrow);
+                        }
                     }
-                    else{
-                        playPauseBtn.setImageResource(R.drawable.ic_baseline_play_arrow);
+                    catch (NullPointerException e){
+                        e.printStackTrace();
                     }
-                }
+
+                    }
+
+
             }
         });
 
@@ -133,7 +141,7 @@ public class NowPlayingFragmentBottom extends Fragment implements ServiceConnect
     }
 
     @Override
-    public void onResume() {
+    public void onResume() throws IllegalArgumentException{
         super.onResume();
         if(SHOW_MINI_PLAYER){
             if(PATH_TO_FRAG!=null) {
@@ -162,12 +170,18 @@ public class NowPlayingFragmentBottom extends Fragment implements ServiceConnect
     @Override
     public void onPause() {
         super.onPause();
-        if(getContext()!=null){
-            getContext().unbindService(this);
+        try {
+            if(getContext()!=null){
+                getContext().unbindService(this);
+            }
         }
+        catch (IllegalArgumentException e){
+            e.printStackTrace();
+        }
+
     }
 
-    private byte[] getAlbumArt(String uri){
+    private byte[] getAlbumArt(String uri) throws IllegalArgumentException{
         MediaMetadataRetriever retriever=new MediaMetadataRetriever();
         retriever.setDataSource(uri);
         byte[] art=retriever.getEmbeddedPicture();

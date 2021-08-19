@@ -132,7 +132,7 @@ public class MediaPlayerTest {
         assertEquals(deleted, "File Deleted");
     }
     @Test
-    public void changeSongFromNotificationBar() throws UiObjectNotFoundException, InterruptedException { // ↑ verificare ca se poate schimba melodia folosind meniul de notificari al os-ului,
+    public void changeSongFromNotificationBar() throws UiObjectNotFoundException, InterruptedException { //verificare ca se poate schimba melodia folosind meniul de notificari al os-ului,
         // nu pot realiza testul din cauza unor permisiuni ce impiedica notificarile sa fie vizualizate
         UiCollection songs = new UiCollection(new UiSelector().className("android.widget.RelativeLayout"));
         UiObject song = songs.getChildByInstance(new UiSelector().resourceId("com.example.mediaplayer:id/music_file_name"),1);

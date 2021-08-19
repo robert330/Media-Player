@@ -21,7 +21,8 @@
         <activity android:name=".SongDetails" />
         <activity android:name=".AlbumDetails" />
         <activity android:name=".PlayerActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

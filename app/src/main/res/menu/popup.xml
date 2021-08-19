@@ -4,10 +4,12 @@
     <item
         android:title="Delete"
         android:id="@+id/delete"
+        android:contentDescription="delete"
         app:showAsAction="never"/>
     <item
         android:title="Informations"
         android:id="@+id/informations"
+        android:contentDescription="informations"
         app:showAsAction="never"/>
 
 </menu>

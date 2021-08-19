@@ -105,8 +105,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
     }
 
 
-    private void deleteFile(int position, View v) {
-
+    public boolean deleteFile(int position, View v) {
         Uri contentUri= ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
                 Long.parseLong(mFiles.get(position).getId()));
 
@@ -121,11 +120,13 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, mFiles.size());
                 Snackbar.make(v, "File deleted : "+ mFiles.get(position).getTitle(), Snackbar.LENGTH_LONG).show();
+
             } else {
                 Snackbar.make(v, "File can't be deleted : "+ mFiles.get(position).getTitle(), Snackbar.LENGTH_LONG).show();
 
             }
         }
+        return deleted;
     }
 
     @Override
